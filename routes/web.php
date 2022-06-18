@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ Route::get('/about', function () {
 });
 // Route::view('about', 'about'); //Short hand for creating a route (1st parameter is route and second is blade file)
 Route::view('contact', 'contact');
+Route::get('users/{user}', [Users::class, 'index']);
