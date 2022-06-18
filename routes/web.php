@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('hello');
+Route::get('/{name}', function ($name) {
+    return view('welcome', ['name' => $name]);
 });
+Route::get('/about', function () {
+    return view('about');
+});
+// Route::view('about', 'about'); //Short hand for creating a route (1st parameter is route and second is blade file)
+Route::view('contact', 'contact');
