@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     //
-    public function loadView($user)
+    public function loadView()
     {
-        return view("users", ["name" => $user]);
+        $data = ['rooh', 'khan', 'peter', 'jason'];
+        return view("users", ["user" => "rooh", "users" => $data]);
     }
 }
