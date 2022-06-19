@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Users;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +23,5 @@ Route::get('/about', function () {
 });
 // Route::view('about', 'about'); //Short hand for creating a route (1st parameter is route and second is blade file)
 Route::view('contact', 'contact');
-Route::get('users/{user}', [Users::class, 'index']);
+Route::get('users/{user}', [UsersController::class, 'loadView']);
+// Route::view('users', 'Users@index'); //Deprecated way of registring controller
