@@ -12,4 +12,9 @@ class UsersController extends Controller
         $data = ['rooh', 'khan', 'peter', 'jason'];
         return view("users", ["user" => "rooh", "users" => $data]);
     }
+
+    public function signIn(Request $request)
+    {
+        return $request->input();
+    }
 }
