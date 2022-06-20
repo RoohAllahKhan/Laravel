@@ -25,7 +25,7 @@ Route::get('/about', function () {
 //Route::view('contact', 'contact');
 Route::get('users', [UsersController::class, 'loadView']);
 Route::post('users', [UsersController::class, 'signIn']);
-Route::view('login', 'login');
+Route::view('login', 'login')->middleware(['protectedPage']);
 Route::view('noaccess', 'noaccess');
 Route::group(['middleware' => ['protectPage']], function (){
     Route::view('contact', 'contact');
