@@ -1,3 +1,4 @@
+@include('components/header')
 <x-header data="User Component Header" />
 <h1>Hello users</h1>
 
@@ -11,3 +12,4 @@
 @foreach($users as $user)
     <h4>{{$user}}</h4>
 @endforeach
+@include('inner')
