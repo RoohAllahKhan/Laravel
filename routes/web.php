@@ -22,10 +22,13 @@ Route::get('/about', function () {
     return view('about');
 });
 // Route::view('about', 'about'); //Short hand for creating a route (1st parameter is route and second is blade file)
-Route::view('contact', 'contact');
+//Route::view('contact', 'contact');
 Route::get('users', [UsersController::class, 'loadView']);
 Route::post('users', [UsersController::class, 'signIn']);
 Route::view('login', 'login');
 Route::view('noaccess', 'noaccess');
+Route::group(['middleware' => ['protectPage']], function (){
+    Route::view('contact', 'contact');
+});
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
