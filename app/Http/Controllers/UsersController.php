@@ -15,6 +15,11 @@ class UsersController extends Controller
 
     public function signIn(Request $request)
     {
+        $request->validate([
+            'username' => 'required | email | max:10',
+            'userpassword' => 'required | min:5'
+        ]);
+
         return $request->input();
     }
 }

@@ -26,5 +26,6 @@ Route::view('contact', 'contact');
 Route::get('users', [UsersController::class, 'loadView']);
 Route::post('users', [UsersController::class, 'signIn']);
 Route::view('login', 'login');
+Route::view('noaccess', 'noaccess');
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
