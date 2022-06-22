@@ -31,5 +31,6 @@ Route::group(['middleware' => ['protectPage']], function (){
     Route::view('contact', 'contact');
 });
 Route::get('all-users', [UsersController::class, 'getUsers']);
+Route::get('user-profiles', [UsersController::class, 'index']);
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller

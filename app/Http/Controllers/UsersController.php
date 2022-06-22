@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class UsersController extends Controller
 {
@@ -30,5 +31,11 @@ class UsersController extends Controller
     public function getUsers()
     {
         return User::all();
+    }
+
+    public function index()
+    {
+        $collection = Http::get('https://reqres.in/api/users?page=1');
+        return view('profiles', ['collection' => $collection['data']]);
     }
 }
