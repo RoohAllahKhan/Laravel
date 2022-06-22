@@ -21,11 +21,12 @@ class UsersController extends Controller
     public function signIn(Request $request)
     {
         $request->validate([
-            'username' => 'required | email | max:10',
+            'username' => 'required | max:10',
             'userpassword' => 'required | min:5'
         ]);
-
-        return $request->input();
+        $data = $request->input();
+        $request->session()->put('user', $data['username']);
+        return redirect('profile');
     }
 
     public function getUsers()

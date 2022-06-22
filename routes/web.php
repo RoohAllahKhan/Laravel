@@ -23,14 +23,29 @@ Route::get('/about', function () {
 });
 // Route::view('about', 'about'); //Short hand for creating a route (1st parameter is route and second is blade file)
 //Route::view('contact', 'contact');
-Route::get('users', [UsersController::class, 'loadView']);
+//Route::get('users', [UsersController::class, 'loadView']);
+//Route::view('login', 'login')->middleware(['protectedPage']);
 Route::post('users', [UsersController::class, 'signIn']);
-Route::view('login', 'login')->middleware(['protectedPage']);
+Route::view('profile', 'users');
 Route::view('noaccess', 'noaccess');
 Route::group(['middleware' => ['protectPage']], function (){
     Route::view('contact', 'contact');
 });
 Route::get('all-users', [UsersController::class, 'getUsers']);
 Route::get('user-profiles', [UsersController::class, 'index']);
+Route::get('login', function (){
+    if(session()->has('user'))
+    {
+        return redirect('profile');
+    }
+    return view('login');
+})->middleware(['protectedPage']);
+Route::get('logout', function (){
+   if(session()->has('user'))
+   {
+       session()->pull('user');
+   }
+   return redirect('login');
+});
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
