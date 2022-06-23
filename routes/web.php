@@ -5,6 +5,7 @@ use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,5 +59,6 @@ Route::get('locale/{lang}', function ($lang){
     App::setLocale($lang);
     return view('locale');
 });
+Route::get('list', [MemberController::class, 'show']);
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
