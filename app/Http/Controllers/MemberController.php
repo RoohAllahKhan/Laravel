@@ -83,4 +83,12 @@ class MemberController extends Controller
 //        return DB::table('User')->sum('id');
         return DB::table('User')->max('id');
     }
+
+    public function showJoin()
+    {
+//     return DB::table('User')
+//         ->join('company', 'User.id', "=", 'company.employee_id')
+//         ->select('company.*')
+//         ->get();
+    }
 }

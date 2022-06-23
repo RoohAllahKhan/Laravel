@@ -67,5 +67,6 @@ Route::get('edit/{id}', [MemberController::class, 'showData']);
 Route::post('edit', [MemberController::class, 'update']);
 Route::get('test-query', [MemberController::class, 'dbOperations']);
 Route::get('aggregate', [MemberController::class, 'operations']);
+Route::get('show', [MemberController::class, 'showJoin']);
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
