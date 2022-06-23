@@ -24,4 +24,11 @@ class MemberController extends Controller
 
         return redirect('add-user');
     }
+
+    public function delete($id)
+    {
+        $data = User::find($id);
+        $data->delete();
+        return redirect('list');
+    }
 }
