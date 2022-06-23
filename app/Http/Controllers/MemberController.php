@@ -10,7 +10,7 @@ class MemberController extends Controller
     //
     public function show()
     {
-        $data = User::all();
+        $data = User::paginate(5);
         return view('list', ['members' => $data]);
     }
 }
