@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddMemberController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 
@@ -50,5 +51,7 @@ Route::get('logout', function (){
 });
 Route::view('add', 'add');
 Route::post("add-member", [AddMemberController::class, 'addMember']);
+Route::view('upload', 'upload');
+Route::post('upload', [UploadController::class, 'index']);
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
