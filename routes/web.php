@@ -60,5 +60,7 @@ Route::get('locale/{lang}', function ($lang){
     return view('locale');
 });
 Route::get('list', [MemberController::class, 'show']);
+Route::view('add-user', 'add-user');
+Route::post('add', [MemberController::class, 'addData']);
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller

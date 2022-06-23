@@ -43,4 +43,5 @@ class User extends Authenticatable
     ];
 
     public $table = "User";
+    public $timestamps = false;
 }

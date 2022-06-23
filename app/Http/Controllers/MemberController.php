@@ -13,4 +13,15 @@ class MemberController extends Controller
         $data = User::paginate(5);
         return view('list', ['members' => $data]);
     }
+
+    public function addData(Request $request)
+    {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->save();
+
+        return redirect('add-user');
+    }
 }
