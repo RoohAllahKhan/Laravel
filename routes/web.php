@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddMemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 
@@ -47,5 +48,7 @@ Route::get('logout', function (){
    }
    return redirect('login');
 });
+Route::view('add', 'add');
+Route::post("add-member", [AddMemberController::class, 'addMember']);
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
