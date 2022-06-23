@@ -76,4 +76,11 @@ class MemberController extends Controller
         return $data;
 //        return view('viewQuery', ['data' => $data]);
     }
+
+    public function operations()
+    {
+//        return DB::table('User')->avg('id');
+//        return DB::table('User')->sum('id');
+        return DB::table('User')->max('id');
+    }
 }
