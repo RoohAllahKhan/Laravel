@@ -1,6 +1,6 @@
 <h1>Members List</h1>
 @if(session('user'))
-    <h3 style="color: green">{{session('user')['name']}} user has been deleted succesfully</h3>
+    <h3 style="color: green">{{session('user')['message']}}</h3>
 @endif
 <table border="1">
     <tr>
@@ -16,7 +16,10 @@
         <td>{{$member['name']}}</td>
         <td>{{$member['email']}}</td>
         <td>{{$member['address']}}</td>
-        <td><a href={{"delete/".$member['id']}}>Delete</a></td>
+        <td>
+            <a href={{"delete/".$member['id']}}>Delete</a>
+            <a href={{"edit/".$member['id']}}>Edit</a>
+        </td>
     </tr>
     @endforeach
 </table>

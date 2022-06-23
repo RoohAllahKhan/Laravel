@@ -32,4 +32,22 @@ class MemberController extends Controller
         $request->session()->flash('user', $data);
         return redirect('list');
     }
+
+    public function showData($id)
+    {
+        $data =  User::find($id);
+        return view('edit', ['data' => $data]);
+    }
+
+    public function update(Request $request)
+    {
+        $data = User::find($request->id);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->address = $request->address;
+        $data->save();
+        $data->message = $data->name." has been updated successfully";
+        $request->session()->flash('user', $data);
+        return redirect('list');
+    }
 }
