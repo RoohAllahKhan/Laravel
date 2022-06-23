@@ -21,14 +21,15 @@ class MemberController extends Controller
         $user->email = $request->email;
         $user->address = $request->address;
         $user->save();
-
+        $request->session()->flash('user', $user);
         return redirect('add-user');
     }
 
-    public function delete($id)
+    public function delete($id, Request $request)
     {
         $data = User::find($id);
         $data->delete();
+        $request->session()->flash('user', $data);
         return redirect('list');
     }
 }

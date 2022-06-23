@@ -1,4 +1,7 @@
 <h1>Add Members</h1>
+@if(session('user'))
+    <h3 style="color: green">{{session('user')['name']}} user has been added</h3>
+@endif
 <form action="add" method="POST">
     @csrf
     <input type="text" name="name" placeholder="Enter Name"><br><br>
