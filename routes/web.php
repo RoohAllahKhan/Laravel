@@ -4,6 +4,7 @@ use App\Http\Controllers\AddMemberController;
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,9 @@ Route::view('add', 'add');
 Route::post("add-member", [AddMemberController::class, 'addMember']);
 Route::view('upload', 'upload');
 Route::post('upload', [UploadController::class, 'index']);
+Route::get('locale/{lang}', function ($lang){
+    App::setLocale($lang);
+    return view('locale');
+});
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
