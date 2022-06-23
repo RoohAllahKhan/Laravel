@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -49,5 +50,30 @@ class MemberController extends Controller
         $data->message = $data->name." has been updated successfully";
         $request->session()->flash('user', $data);
         return redirect('list');
+    }
+
+    public function dbOperations()
+    {
+        $data = DB::table('User')->get();
+        $data = DB::table('User')
+            ->where('address', 'GmbH');
+        $data = DB::table('User')->find(7);
+        $data = DB::table('User')->count();
+        $data = DB::table('User')
+            ->insert([
+                'name' => 'rock',
+                'email' => 'rock@GmbH.de',
+                'address' => 'berlin'
+            ]);
+        $data = DB::table('User')
+            ->where('id', 17)
+            ->update([
+                'name' => 'fluff',
+                'email' => 'fluff@GmbH.de',
+                'address' => 'frankfurt'
+            ]);
+        $data = DB::table('User')->where('id', 17)->delete();
+        return $data;
+//        return view('viewQuery', ['data' => $data]);
     }
 }
