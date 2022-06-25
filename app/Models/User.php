@@ -44,4 +44,14 @@ class User extends Authenticatable
 
     public $table = "User";
     public $timestamps = false;
+
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function getAddressAttribute($value)
+    {
+        return $value.', Pakistan';
+    }
 }
