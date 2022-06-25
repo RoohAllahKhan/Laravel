@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return $value.', Pakistan';
     }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = "Mr ".$value;
+    }
+
+    public function setAddressAttribute($value)
+    {
+        $this->attributes['address'] = $value.", Pakistan";
+    }
 }
