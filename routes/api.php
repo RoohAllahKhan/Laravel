@@ -22,3 +22,4 @@ Route::get("list", [\App\Http\Controllers\DeviceController::class, 'list']);
 Route::post("add", [\App\Http\Controllers\DeviceController::class, 'add']);
 Route::get("search/{name}", [\App\Http\Controllers\DeviceController::class, 'search']);
 Route::post("save", [\App\Http\Controllers\DeviceController::class, 'testData']);
+Route::apiResource("test", \App\Http\Controllers\TestResource::class);
