@@ -54,25 +54,26 @@ class MemberController extends Controller
 
     public function dbOperations()
     {
-        $data = DB::table('User')->get();
-        $data = DB::table('User')
-            ->where('address', 'GmbH');
-        $data = DB::table('User')->find(7);
-        $data = DB::table('User')->count();
-        $data = DB::table('User')
-            ->insert([
-                'name' => 'rock',
-                'email' => 'rock@GmbH.de',
-                'address' => 'berlin'
-            ]);
-        $data = DB::table('User')
-            ->where('id', 17)
-            ->update([
-                'name' => 'fluff',
-                'email' => 'fluff@GmbH.de',
-                'address' => 'frankfurt'
-            ]);
-        $data = DB::table('User')->where('id', 17)->delete();
+//        $data = DB::table('User')->get();
+//        $data = DB::table('User')
+//            ->where('address', 'GmbH');
+//        $data = DB::table('User')->find(3);
+        $data = User::find(3)->getCompany;
+//        $data = DB::table('User')->count();
+//        $data = DB::table('User')
+//            ->insert([
+//                'name' => 'rock',
+//                'email' => 'rock@GmbH.de',
+//                'address' => 'berlin'
+//            ]);
+//        $data = DB::table('User')
+//            ->where('id', 17)
+//            ->update([
+//                'name' => 'fluff',
+//                'email' => 'fluff@GmbH.de',
+//                'address' => 'frankfurt'
+//            ]);
+//        $data = DB::table('User')->where('id', 17)->delete();
         return $data;
 //        return view('viewQuery', ['data' => $data]);
     }

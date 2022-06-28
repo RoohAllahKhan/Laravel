@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         $this->attributes['address'] = $value.", Pakistan";
     }
+
+    public function getCompany()
+    {
+        return $this->hasOne('App\Models\Company');
+    }
 }
