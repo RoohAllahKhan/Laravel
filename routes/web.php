@@ -26,7 +26,7 @@ $data = Str::of($data)
     ->ucfirst($data)
     ->replaceFirst('Hi', 'Hello', $data)
     ->camel($data);
-echo $data;
+//echo $data;
 Route::get('/', function () {
     // return view('welcome');
     return redirect('about');
@@ -77,5 +77,7 @@ Route::post('edit', [MemberController::class, 'update']);
 Route::get('test-query', [MemberController::class, 'dbOperations']);
 Route::get('aggregate', [MemberController::class, 'operations']);
 Route::get('show', [MemberController::class, 'showJoin']);
+//Route::get("devices/{key}", [\App\Http\Controllers\DeviceController::class, 'index']);
+Route::get("devices/{key:name}", [\App\Http\Controllers\DeviceController::class, 'index']);
 //Route::view('users', 'users');
 // Route::view('users', 'Users@index'); //Deprecated way of registring controller
