@@ -32,6 +32,10 @@ class DeviceController extends Controller
 
     public function search($name)
     {
-        return Device::where('name', 'like','%'.$name.'%')->get();
+        $data = Device::where('name', 'like','%'.$name.'%')->get();
+        if($data->count() > 0) {
+            return $data;
+        }
+        return ["message" => "No data found"];
     }
 }
