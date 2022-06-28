@@ -29,4 +29,9 @@ class DeviceController extends Controller
         }
         return ["Result" => "Operation failed"];
     }
+
+    public function search($name)
+    {
+        return Device::where('name', 'like','%'.$name.'%')->get();
+    }
 }
