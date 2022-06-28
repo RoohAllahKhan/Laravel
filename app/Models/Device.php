@@ -9,4 +9,5 @@ class Device extends Model
 {
     use HasFactory;
     protected $table = 'devices';
+    public $timestamps = false;
 }
