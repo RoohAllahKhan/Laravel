@@ -5,6 +5,7 @@ use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 use App\Http\Controllers\MemberController;
 
 /*
@@ -17,7 +18,15 @@ use App\Http\Controllers\MemberController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+$data = "hi, let's learn laravel!";
+//$data = Str::ucfirst($data);
+//$data = Str::replaceFirst('Hi', 'Hello', $data);
+//This is time consuming so we can use fluent strings in order to chain the string methods
+$data = Str::of($data)
+    ->ucfirst($data)
+    ->replaceFirst('Hi', 'Hello', $data)
+    ->camel($data);
+echo $data;
 Route::get('/', function () {
     // return view('welcome');
     return redirect('about');
