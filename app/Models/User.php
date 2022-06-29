@@ -42,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public $table = "User";
+    public $table = "users";
     public $timestamps = false;
 
     public function getNameAttribute($value)
