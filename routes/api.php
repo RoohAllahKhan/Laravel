@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,4 @@ Route::post("add", [\App\Http\Controllers\DeviceController::class, 'add']);
 Route::get("search/{name}", [\App\Http\Controllers\DeviceController::class, 'search']);
 Route::post("save", [\App\Http\Controllers\DeviceController::class, 'testData']);
 Route::post("login",[UserController::class,'index']);
+Route::post("upload", [FileController::class, 'upload']);
