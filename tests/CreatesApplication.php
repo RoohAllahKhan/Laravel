@@ -4,7 +4,7 @@ namespace Tests;
 
 use Illuminate\Contracts\Console\Kernel;
 
-//This is a comment
+//This is a commen
 trait CreatesApplication
 {
     /**
